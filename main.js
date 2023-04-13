@@ -12,17 +12,19 @@ let palavras = [
   "kiss",
 ];
 
-let palavra = palavras[Math.floor(Math.random() * palavras.length)];
-
 let div = $("divGif");
 let gifUrl;
 
-var xhr = $.get(
-  `http://api.giphy.com/v1/gifs/search?q=${palavra}&api_key=GkJbthiCKiAn8NerjtSbyLX0WLqaOpAd&limit=5`
-);
+function gerarGif() {
+  let palavra = palavras[Math.floor(Math.random() * palavras.length)];
 
-xhr.done(function (data) {
-  console.log(data);
-  gifUrl = data.data[[Math.floor(Math.random() * 5)]].images.downsized.url;
-  $("#img").attr("src", gifUrl);
-});
+  var xhr = $.get(
+    `http://api.giphy.com/v1/gifs/search?q=${palavra}&api_key=GkJbthiCKiAn8NerjtSbyLX0WLqaOpAd&limit=5&rating=g`
+  );
+
+  xhr.done(function (data) {
+    gifUrl = data.data[[Math.floor(Math.random() * 5)]].images.downsized.url;
+    $("#img").attr("src", gifUrl);
+    console.log(data);
+  });
+}
