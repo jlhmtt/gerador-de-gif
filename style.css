@@ -21,3 +21,7 @@ p {
   margin-top: 0;
   margin-bottom: 3em;
 }
+
+img {
+  max-height: 400px;
+}
