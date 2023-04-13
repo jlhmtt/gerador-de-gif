@@ -2,24 +2,27 @@ let palavras = [
   "amor",
   "beijo",
   "gato",
-  "cat",
+  "kitten",
   "love",
   "family",
   "família",
-  "i+love+you"
+  "i+love+you",
+  "fofo",
+  "cute",
+  "kiss"
 ];
 
-let palavra = palavras[Math.floor(Math.random(palavras.length))];
+let palavra = palavras[Math.floor(Math.random() * palavras.length)];
 
 let div = $("divGif");
 let gifUrl;
 
 var xhr = $.get(
-  `http://api.giphy.com/v1/gifs/search?q=${palavra}&api_key=GkJbthiCKiAn8NerjtSbyLX0WLqaOpAd&limit=1`
+  `http://api.giphy.com/v1/gifs/search?q=${palavra}&api_key=GkJbthiCKiAn8NerjtSbyLX0WLqaOpAd&limit=5`
 );
 
 xhr.done(function (data) {
-  console.log("success got data", data);
-  gifUrl = data.data[0].images.original.url;
+  console.log(data);
+  gifUrl = data.data[0].images.downsized.url;
   $("#img").attr("src", gifUrl);
 });
