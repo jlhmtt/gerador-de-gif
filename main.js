@@ -9,7 +9,7 @@ let palavras = [
   "i+love+you",
   "fofo",
   "cute",
-  "kiss"
+  "kiss",
 ];
 
 let palavra = palavras[Math.floor(Math.random() * palavras.length)];
@@ -23,6 +23,6 @@ var xhr = $.get(
 
 xhr.done(function (data) {
   console.log(data);
-  gifUrl = data.data[0].images.downsized.url;
+  gifUrl = data.data[[Math.floor(Math.random() * 5)]].images.downsized.url;
   $("#img").attr("src", gifUrl);
 });
