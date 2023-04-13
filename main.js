@@ -19,7 +19,7 @@ function gerarGif() {
   let palavra = palavras[Math.floor(Math.random() * palavras.length)];
 
   var xhr = $.get(
-    `http://api.giphy.com/v1/gifs/search?q=${palavra}&api_key=GkJbthiCKiAn8NerjtSbyLX0WLqaOpAd&limit=5&rating=g`
+    `https://api.giphy.com/v1/gifs/search?q=${palavra}&api_key=GkJbthiCKiAn8NerjtSbyLX0WLqaOpAd&limit=5&rating=g`
   );
 
   xhr.done(function (data) {
